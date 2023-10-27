@@ -3,7 +3,7 @@ name: Auto Commit
 
 on:
   schedule:
-    - cron: '56 18 * * *'
+    - cron: '00 19 * * *'
 
 permissions:
   contents: write
