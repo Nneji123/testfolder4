@@ -1,0 +1,28 @@
+
+name: Auto Commit
+
+on:
+  schedule:
+    - cron: '54 5 * * *'
+
+permissions:
+  contents: write
+
+jobs:
+  update-text-file:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Update TXT File
+      run: echo $(date) >> testfile4.txt
+
+    - name: Commit Changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git add .
+        git commit -am "Auto commit at $(date)"
+        git push
+    
