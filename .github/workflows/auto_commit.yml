@@ -20,9 +20,13 @@ jobs:
 
     - name: Commit Changes
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local user.email "ifeanyinneji777@gmail.com"
+        git config --local user.name "Nneji123"
         git add .
         git commit -am "Auto commit at $(date)"
-        git push
-    
+      
+    - name: push changes
+      uses: ad-m/github-push-action@v0.6.0
+      with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            branch: main
